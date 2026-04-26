@@ -16,11 +16,13 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           port: 22
           script: |
-            cd /opt/admin-dashboard
+            cd /var/www/admin-src || (
+              git clone https://github.com/samllbin/Graduation_Project_jiankong.git /var/www/admin-src
+              cd /var/www/admin-src
+            )
             git fetch origin
             git reset --hard origin/master
             npm install
             npm run build
             rm -rf /var/www/admin/*
             cp -r dist/* /var/www/admin/
-            nginx -t && systemctl reload nginx
