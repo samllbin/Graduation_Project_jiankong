@@ -3,21 +3,21 @@ import { useNavigate } from 'react-router-dom';
 import { loginApi } from '../api/analytics';
 
 export default function Login() {
-  const [login, setLogin] = useState('');
+  const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const onSubmit = async () => {
-    if (!login.trim() || !password) {
+    if (!userName.trim() || !password) {
       setError('请输入账号和密码');
       return;
     }
     try {
       setLoading(true);
       setError('');
-      const res: any = await loginApi({ login: login.trim(), password });
+      const res: any = await loginApi({ userName: userName.trim(), password });
       const token = res.data?.access_token;
       if (token) {
         localStorage.setItem('admin_token', token);
@@ -46,8 +46,8 @@ export default function Login() {
             fontSize: 15,
           }}
           placeholder="账号"
-          value={login}
-          onChange={(e) => setLogin(e.target.value)}
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
         />
         <input
           style={{

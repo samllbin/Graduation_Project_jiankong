@@ -1,7 +1,7 @@
 import { http } from './http';
 
-export const loginApi = (data: { login: string; password: string }) =>
-  http.post('/auth/login', data);
+export const loginApi = (data: { userName: string; password: string }) =>
+  http.post('/admin/login', data);
 
 export const getPvUvApi = (params: { start?: string; end?: string }) =>
   http.get('/analytics/pv-uv', { params });

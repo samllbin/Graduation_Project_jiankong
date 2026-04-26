@@ -13,7 +13,6 @@ client.interceptors.request.use((config) => {
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
-  config.headers['x-device-id'] = 'web-admin';
   return config;
 });
 
