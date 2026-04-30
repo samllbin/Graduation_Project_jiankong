@@ -35,8 +35,10 @@ export default function ApiMonitor() {
               <th>接口</th>
               <th>方法</th>
               <th>请求次数</th>
-              <th>平均响应</th>
-              <th>最大响应</th>
+              <th>服务端平均</th>
+              <th>服务端最大</th>
+              <th>客户端平均</th>
+              <th>客户端最大</th>
             </tr>
           </thead>
           <tbody>
@@ -54,6 +56,8 @@ export default function ApiMonitor() {
                 <td>{item.qps}</td>
                 <td>{item.avgDuration} ms</td>
                 <td>{item.maxDuration} ms</td>
+                <td>{item.avgClientDuration != null ? item.avgClientDuration + ' ms' : '-'}</td>
+                <td>{item.maxClientDuration != null ? item.maxClientDuration + ' ms' : '-'}</td>
               </tr>
             ))}
           </tbody>
