@@ -6,6 +6,7 @@ const navItems = [
   { path: '/server-errors', label: '服务错误' },
   { path: '/api-monitor', label: 'API 监控' },
   { path: '/log-query', label: '日志查询' },
+  { path: '/feedback', label: '用户反馈' },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {

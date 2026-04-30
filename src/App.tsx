@@ -6,6 +6,7 @@ import JsErrors from './pages/JsErrors';
 import ServerErrors from './pages/ServerErrors';
 import ApiMonitor from './pages/ApiMonitor';
 import LogQuery from './pages/LogQuery';
+import FeedbackList from './pages/FeedbackList';
 
 function PrivateRoute({ children }: { children: React.ReactNode }) {
   const token = localStorage.getItem('admin_token');
@@ -54,6 +55,14 @@ export default function App() {
           element={
             <PrivateRoute>
               <LogQuery />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/feedback"
+          element={
+            <PrivateRoute>
+              <FeedbackList />
             </PrivateRoute>
           }
         />
