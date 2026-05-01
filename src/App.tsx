@@ -7,6 +7,7 @@ import ServerErrors from './pages/ServerErrors';
 import ApiMonitor from './pages/ApiMonitor';
 import LogQuery from './pages/LogQuery';
 import FeedbackList from './pages/FeedbackList';
+import AppVersions from './pages/AppVersions';
 
 function PrivateRoute({ children }: { children: React.ReactNode }) {
   const token = localStorage.getItem('admin_token');
@@ -63,6 +64,14 @@ export default function App() {
           element={
             <PrivateRoute>
               <FeedbackList />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/app-versions"
+          element={
+            <PrivateRoute>
+              <AppVersions />
             </PrivateRoute>
           }
         />

@@ -7,6 +7,7 @@ const navItems = [
   { path: '/api-monitor', label: 'API 监控' },
   { path: '/log-query', label: '日志查询' },
   { path: '/feedback', label: '用户反馈' },
+  { path: '/app-versions', label: 'App 版本' },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
